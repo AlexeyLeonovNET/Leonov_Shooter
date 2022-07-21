@@ -6,11 +6,11 @@ namespace Player
 {
     public class ShootingEnemy : MonoBehaviour
     {
-        [SerializeField] private GameObject bulletPrefab; // поле для префаба
-        [SerializeField] private Transform BulletPoint; // поле для трансформы
-        [SerializeField] private float spawnStep = 1f; // частота спавна
+        [SerializeField] private GameObject bulletPrefab; 
+        [SerializeField] private Transform BulletPoint; 
+        [SerializeField] private float spawnStep = 1f; 
         [SerializeField] private float angularSpeed = 0.5f;
-        private float nextSpawnTime; // шаг спавна
+        private float nextSpawnTime; 
         private Transform player;
 
         void Start()
@@ -22,7 +22,7 @@ namespace Player
         {
             LookAtPlayer();
             Shoot();
-            
+
         }
         public void LookAtPlayer()
         {
