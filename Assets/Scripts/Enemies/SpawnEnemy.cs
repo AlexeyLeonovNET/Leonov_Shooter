@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+namespace Shooter
 {
-    [SerializeField] private Enemy enemyPrefab;
-    [SerializeField] private float spawnStep = 1f;
-    private float nextSpawnTime;
-    private const float LifeTime = .5f;
-    
-    private void Update()
+    public class SpawnEnemy : MonoBehaviour
     {
-        if(Time.time > nextSpawnTime)
+        [SerializeField] private Enemy enemyPrefab;
+        [SerializeField] private float spawnStep = 1f;
+        private float nextSpawnTime;
+        private const float LifeTime = .5f;
+
+        private void Update()
         {
-            var enemy = Instantiate(enemyPrefab, transform);
-            nextSpawnTime = Time.time + spawnStep;
-            Destroy(enemy.gameObject, LifeTime);
+            if (Time.time > nextSpawnTime)
+            {
+                var enemy = Instantiate(enemyPrefab, transform);
+                nextSpawnTime = Time.time + spawnStep;
+                Destroy(enemy.gameObject, LifeTime);
+            }
+
         }
-        
     }
 }

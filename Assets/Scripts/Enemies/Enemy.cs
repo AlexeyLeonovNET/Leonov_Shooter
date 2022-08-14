@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+namespace Shooter
 {
-    
+
+    public class Enemy : MonoBehaviour
+    {
+
+    }
 }

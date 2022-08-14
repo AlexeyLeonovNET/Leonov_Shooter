@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionHeal : MonoBehaviour
+namespace Shooter
 {
-    
-    public int collisionHeal = 10;
-    public string collisionTag;
-
-    private void OnCollisionEnter(Collision collision)
+    public class CollisionHeal : MonoBehaviour
     {
-        if (collision.gameObject.tag == collisionTag)
+
+        public int collisionHeal = 10;
+        public string collisionTag;
+
+        private void OnCollisionEnter(Collision collision)
         {
-            Health health = collision.gameObject.GetComponent<Health>();
-            health.SetHealth(collisionHeal);
-            Destroy(gameObject);
+            if (collision.gameObject.tag == collisionTag)
+            {
+                Health health = collision.gameObject.GetComponent<Health>();
+                health.SetHealth(collisionHeal);
+                Destroy(gameObject);
+            }
         }
     }
 }

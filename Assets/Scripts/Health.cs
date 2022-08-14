@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+namespace Shooter
 {
-    public int health;
-    public int maxHealth;
-
-  
-
-    public void TakeHit(int damage)
+    public class Health : MonoBehaviour
     {
-        health -= damage;
-        if (health <= 0)
+        public int health;
+        public int maxHealth;
+
+
+
+        public void TakeHit(int damage)
         {
-            gameObject.SetActive(false);
+            health -= damage;
+            if (health <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
-    }
 
-    public void SetHealth(int bonusHealth)
-    {
-        health += bonusHealth;
-        if (health > maxHealth)
+        public void SetHealth(int bonusHealth)
         {
-            health = maxHealth;
+            health += bonusHealth;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
         }
     }
 }
