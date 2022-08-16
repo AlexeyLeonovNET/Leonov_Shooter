@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigBullet : MonoBehaviour
+namespace Shooter
 {
-    public int speed = 25;
-    void Update()
+    public class BigBullet : MonoBehaviour
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime); //перемещение
-        Destroy(gameObject, 0.5f);
+        public int speed = 25;
+        void Update()
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime); //перемещение
+            Destroy(gameObject, 0.5f);
+        }
     }
 }

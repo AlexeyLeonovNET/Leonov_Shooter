@@ -1,46 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PE2D;
 
-public class gunManager : MonoBehaviour
+
+namespace Shooter
 {
-    public float damage = 18;
-    public float fireSpeed = 1;
-    public Camera cam;
-    public float range = 15;
-    public GameObject bull;
-    public GameObject trace;
-    public Transform spawnBull;
-    public AudioClip shot;
-    public AudioSource audioShot;
-    public float force = 100;
-    
-
-    void Start()
+    public class gunManager : MonoBehaviour
     {
-        
-    }
+        public float damage = 18;
+        public float fireSpeed = 1;
+        public Camera cam;
+        public float range = 15;
+        public GameObject bull;
+        public GameObject trace;
+        public Transform spawnBull;
+        public AudioClip shot;
+        public AudioSource audioShot;
+        public float force = 100;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+
+        void Start()
         {
-            shootGun();
+
         }
-    }
 
-    public void shootGun()
-    {
-        audioShot.PlayOneShot(shot);
-        Instantiate(trace, spawnBull.position, spawnBull.rotation);
-        Instantiate(bull, spawnBull.position, spawnBull.rotation);
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        // Update is called once per frame
+        void Update()
         {
-            if(hit.collider != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                hit.rigidbody.AddForce(-hit.normal * force);
+                shootGun();
+            }
+        }
+
+        public void shootGun()
+        {
+            audioShot.PlayOneShot(shot);
+            Instantiate(trace, spawnBull.position, spawnBull.rotation);
+            Instantiate(bull, spawnBull.position, spawnBull.rotation);
+            RaycastHit hit;
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+            {
+                if (hit.collider != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * force);
+                }
             }
         }
     }

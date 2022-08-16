@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CoinPicker : MonoBehaviour
+namespace Shooter
 {
-    private float coins = 0;
-    public TMP_Text coinsText;
-    private void OnTriggerEnter(Collider collision)
+    public class CoinPicker : MonoBehaviour
     {
-      if(collision.gameObject.tag == "Coin")
+        private float coins = 0;
+        public TMP_Text coinsText;
+        private void OnTriggerEnter(Collider collision)
         {
-            coins++;
-            coinsText.text = coins.ToString();
-            Destroy(collision.gameObject);
-        }  
+            if (collision.gameObject.tag == "Coin")
+            {
+                coins++;
+                coinsText.text = coins.ToString();
+                Destroy(collision.gameObject);
+            }
+        }
     }
 }

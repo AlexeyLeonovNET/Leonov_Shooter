@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using Shooter;
 namespace PE2D
 {
 	/// <summary>

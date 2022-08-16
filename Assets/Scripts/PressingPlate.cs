@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PressingPlate : MonoBehaviour
+namespace Shooter
 {
-    public UnityEvent OnPressed;
-    private void OnTriggerEnter(Collider other)
+    public class PressingPlate : MonoBehaviour
     {
-        OnPressed.Invoke();
+        public UnityEvent OnPressed;
+        private void OnTriggerEnter(Collider other)
+        {
+            OnPressed.Invoke();
+        }
     }
 }

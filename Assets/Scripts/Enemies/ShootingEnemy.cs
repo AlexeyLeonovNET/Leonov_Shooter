@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player
+namespace Shooter
 {
     public class ShootingEnemy : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Player
 
         void Start()
         {
-            player = FindObjectOfType<Player.PlayerMovement>().transform;
+            player = FindObjectOfType<Shooter.PlayerMovement>().transform;
         }
 
         void Update()
