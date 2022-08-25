@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooter
+public class CollisionDamage : MonoBehaviour
 {
-    public class CollisionDamage : MonoBehaviour
-    {
-        public int collisionDamage = 10;
-        public string collisionTag;
+    public int collisionDamage = 10;
+    public string collisionTag;
 
-        private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == collisionTag)
         {
-            if (collision.gameObject.tag == collisionTag)
-            {
-                Health health = collision.gameObject.GetComponent<Health>();
-                health.TakeHit(collisionDamage);
-            }
+            Health health = collision.gameObject.GetComponent<Health>();
+            health.TakeHit(collisionDamage);
         }
     }
 }
