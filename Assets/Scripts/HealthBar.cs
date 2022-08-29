@@ -3,31 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Shooter
+public class HealthBar : MonoBehaviour
 {
-    public class HealthBar : MonoBehaviour
+    public Slider slider;
+    public Health playerHealth;
+    
+
+    void Start()
     {
-        public Slider slider;
-        public Health playerHealth;
-
-
-        void Start()
-        {
-            SetMaxHealth(playerHealth.maxHealth);
-        }
-        void Update()
-        {
-            SetHealth(playerHealth.health);
-        }
-        public void SetMaxHealth(int health)
-        {
-            slider.maxValue = health;
-            slider.value = health;
-        }
-        public void SetHealth(int health)
-        {
-
-            slider.value = health;
-        }
+        SetMaxHealth(playerHealth.maxHealth);
+    }
+    void Update()
+    {
+        SetHealth(playerHealth.health);
+    }
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+    }
+    public void SetHealth(int health)
+    {
+        
+        slider.value = health;
     }
 }
