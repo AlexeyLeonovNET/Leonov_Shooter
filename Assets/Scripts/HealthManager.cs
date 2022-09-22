@@ -2,35 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooter
+public class HealthManager : MonoBehaviour
 {
-    public class HealthManager : MonoBehaviour
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float curHealth;
+    public float health;
+
+    public void Awake()
     {
-        [SerializeField] private float maxHealth = 100f;
-        [SerializeField] private float curHealth;
-        public float health;
+        curHealth = maxHealth;
+    }
 
-        public void Awake()
+    public void Hit(float damage)
+    {
+        curHealth -= damage;
+        if (curHealth <= 0)
         {
-            curHealth = maxHealth;
+            Time.timeScale = 0;
         }
+    }
 
-        public void Hit(float damage)
+    public void SetHealth(int bonusHealth)
+    {
+        health += bonusHealth;
+        if (health > maxHealth)
         {
-            curHealth -= damage;
-            if (curHealth <= 0)
-            {
-                Time.timeScale = 0;
-            }
-        }
-
-        public void SetHealth(int bonusHealth)
-        {
-            health += bonusHealth;
-            if (health > maxHealth)
-            {
-                health = maxHealth;
-            }
+            health = maxHealth;
         }
     }
 }

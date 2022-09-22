@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4574191698783759302}
   - component: {fileID: 4574191698783759303}
   - component: {fileID: -7821322128345351018}
+  - component: {fileID: 9067894705848834818}
   m_Layer: 0
   m_Name: BigBullet
-  m_TagString: Untagged
+  m_TagString: test
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+--- !u!136 &9067894705848834818
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4574191698783759301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2.0000002
+  m_Direction: 1
+  m_Center: {x: 0.000061035156, y: 0, z: 0.000061035156}

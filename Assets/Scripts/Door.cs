@@ -2,25 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooter
+public class Door : MonoBehaviour
 {
-    public class Door : MonoBehaviour
+    private bool isOpen;
+    
+    public void Open()
     {
-        private bool isOpen;
+        isOpen = true;
+    }
 
-        public void Open()
+    // Update is called once per frame
+    void Update()
+    {
+        if (isOpen)
         {
-            isOpen = true;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (isOpen)
-            {
-                Transform cube = transform.GetChild(0);
-                cube.localPosition = Vector3.MoveTowards(cube.localPosition, Vector3.up * 2, Time.deltaTime);
-            }
+            Transform cube = transform.GetChild(0);
+            cube.localPosition = Vector3.MoveTowards(cube.localPosition, Vector3.up * 2,Time.deltaTime);
         }
     }
 }
